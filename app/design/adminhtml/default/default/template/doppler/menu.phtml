@@ -1,0 +1,86 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<div class="nav-bar">
+<!-- menu start -->
+<?php echo $this->getMenuLevel($this->getMenuArray()); ?>
+<!-- menu end -->
+
+    <a id="page-help-link" href="<?php echo Mage::helper('adminhtml')->getPageHelpUrl() ?>"><?php echo $this->__('Get help for this page') ?></a>
+    <script type="text/javascript">
+        $('page-help-link').target = 'magento_page_help';
+
+        // CUSTOM: Add JS to highlight Doppler "API Connection" menu item based on the connection status
+
+        // Find API Connection menu item
+        var spanTags = document.getElementsByTagName('span');
+        var searchText = '<?php echo $this->__('API Connection') ?>';
+        var found;
+        for (var i = 0; i < spanTags.length; i++) {
+            if (spanTags[i].textContent == searchText) {
+                found = spanTags[i];
+                break;
+            }
+        }
+        spanTags[i].parentElement.style.backgroundColor = 'transparent';
+
+        // Apply red/green background color based on API Connection status
+        <?php if ($_statusCode = $this->getActiveDopplerApi()): ?>
+            <?php if ($_statusCode == '200'): ?>
+                spanTags[i].parentElement.parentElement.style.backgroundImage= "url(<?php echo $this->getSkinUrl('makingsense_doppler/images/nav2_last_li_bg-green.png') ?>)";
+            <?php elseif ($_statusCode == '404'): ?>
+                spanTags[i].parentElement.parentElement.style.backgroundImage= "url(<?php echo $this->getSkinUrl('makingsense_doppler/images/nav2_last_li_bg-red.png') ?>)";
+            <?php elseif ($_statusCode == '4040'): ?>
+                spanTags[i].parentElement.parentElement.style.backgroundImage= "url(<?php echo $this->getSkinUrl('makingsense_doppler/images/nav2_last_li_bg-red.png') ?>)";
+            <?php else: ?>
+                spanTags[i].parentElement.parentElement.style.backgroundImage= "url(<?php echo $this->getSkinUrl('makingsense_doppler/images/nav2_last_li_bg-red.png') ?>)";
+            <?php endif ?>
+        <?php else: ?>
+            spanTags[i].parentElement.parentElement.style.backgroundImage= "url(<?php echo $this->getSkinUrl('makingsense_doppler/images/nav2_last_li_bg-red.png') ?>)";
+        <?php endif ?>
+
+        // Find Default Doppler List menu item
+        searchText = '<?php echo $this->__('Default Doppler List') ?>';
+        found = false;
+        for (i = 0; i < spanTags.length; i++) {
+            if (spanTags[i].textContent == searchText) {
+                found = spanTags[i];
+                break;
+            }
+        }
+
+        spanTags[i].parentElement.style.backgroundColor = 'transparent';
+
+        // Apply red/green background color based on default Doppler list status
+        <?php if (!$this->getDefaultListEnabled()): ?>
+        spanTags[i].parentElement.parentElement.style.backgroundImage= "url(<?php echo $this->getSkinUrl('makingsense_doppler/images/nav2_last_li_bg-red.png') ?>)";
+        <?php else: ?>
+        spanTags[i].parentElement.parentElement.style.backgroundImage= "url(<?php echo $this->getSkinUrl('makingsense_doppler/images/nav2_last_li_bg-green.png') ?>)";
+        <?php endif ?>
+    </script>
+
+</div>

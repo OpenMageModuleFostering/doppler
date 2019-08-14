@@ -1,0 +1,17 @@
+<div id="test_connection_container">
+    <div>
+        <?php if ($_statusCode = $this->getStatusCode()): ?>
+            <?php if ($_statusCode == '200'): ?>
+                <div style="color: green; font-weight: bold;"><?php echo $this->__('Connection successfully established') ?></div>
+            <?php elseif ($_statusCode == '404'): ?>
+                <div style="color: red; font-weight: bold;"><?php echo $this->__('The Doppler API is not currently available, please try later') ?></div>
+            <?php elseif ($_statusCode == '4040'): ?>
+                <div style="color: red; font-weight: bold;"><?php echo $this->__('The Doppler API is not currently available, please try later') ?></div>
+            <?php else: ?>
+                <div style="color: red; font-weight: bold;"><?php echo $this->__('Your credentials are not valid, please check your username and API key and try again') ?></div>
+            <?php endif ?>
+        <?php else: ?>
+            <div><?php echo $this->__('Please, add your credentials above and save this page to test your API connection') ?></div>
+        <?php endif ?>
+    </div>
+</div>

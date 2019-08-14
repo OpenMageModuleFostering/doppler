@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+		<menu>
+				<doppler translate="title" module="makingsense_doppler">
+						<title>Doppler</title>
+						<sort_order>65</sort_order>
+						<children>
+								<doppler_subscribers translate="title" module="makingsense_doppler">
+										<title>Subscribers</title>
+										<action>adminhtml/subscribers</action>
+								</doppler_subscribers>
+								<doppler_lists translate="title" module="makingsense_doppler">
+										<title>Doppler Lists</title>
+										<action>adminhtml/lists</action>
+								</doppler_lists>
+								<lead_mapping translate="title" module="makingsense_doppler">
+										<title>Lead Mapping</title>
+										<action>adminhtml/leadmap</action>
+								</lead_mapping>
+								<defaultlist translate="title" module="makingsense_doppler">
+										<title>Default Doppler List</title>
+										<action>adminhtml/defaultlist</action>
+								</defaultlist>
+								<api_connection translate="title" module="makingsense_doppler">
+										<title>API Connection</title>
+										<action>adminhtml/system_config/edit/section/doppler</action>
+								</api_connection>
+						</children>
+				</doppler>
+		</menu>
+		<acl>
+				<resources>
+						<admin>
+								<children>
+										<system>
+												<children>
+														<config>
+																<children>
+																		<doppler translate="title" module="makingsense_doppler">
+																				<title>Doppler API</title>
+																		</doppler>
+																</children>
+														</config>
+												</children>
+										</system>
+								</children>
+						</admin>
+				</resources>
+		</acl>
+</config>

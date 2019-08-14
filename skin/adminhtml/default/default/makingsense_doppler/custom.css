@@ -1,0 +1,34 @@
+.non-editable {
+    background-color: transparent !important;
+    border-width: 0 !important;
+    cursor: default;
+}
+
+.adminhtml-subscribers-index button.add span {
+    background-image: url("../images/save_btn_icon.gif");
+}
+
+.adminhtml-subscribers-index td.doppler-highlighted {
+    background-color: #FFFCDD;
+}
+
+.adminhtml-subscribers-index tr.even td.doppler-highlighted {
+    background-color: #F3F0D3;
+}
+
+#makingsense_doppler_defaultlist_grid_table td {
+    vertical-align: middle;
+    padding: 100px;
+    text-align: center;
+}
+
+#makingsense_doppler_defaultlist_grid_table td.last {
+    font-weight: bold;
+}
+
+#makingsense_doppler_defaultlist_grid_table td {
+    padding: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+}
