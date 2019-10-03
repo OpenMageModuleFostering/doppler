@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/doppler",
+    "name": "OpenMageModuleFostering\/doppler",
     "type": "magento-module",
     "license": "GNU-General-Public-License-(GPL)",
     "homepage": "",
     "description": "Integrate your Magento Ecommerce with the #1 Email Marketing app in Latin America.",
     "authors": [
-    {
-        "name": "Diego Noya",
-        "email": "info@fromdoppler.com"
-    }
-],
+        {
+            "name": "Diego Noya",
+            "email": "info@fromdoppler.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
